@@ -1,0 +1,583 @@
+body {
+  background-color: black;
+}
+
+img,
+video {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+a {
+  font-family: "Rubik", sans-serif;
+  text-decoration: none;
+  color: #ffcc2a;
+}
+
+.active {
+  border-bottom: 2px solid #f74a5a;
+}
+
+.navigations_menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#burger_wrapper {
+  height: 2rem;
+  margin-right: 0.5rem;
+
+  cursor: pointer;
+}
+
+#menuknap {
+  position: relative;
+  z-index: 101;
+  width: 100%;
+  height: auto;
+}
+
+header {
+  background-color: #0a0a0a;
+}
+
+.streg_1,
+.streg_2,
+.streg_3 {
+  height: 2px;
+  width: 3rem;
+  border-radius: 999px;
+
+  background: #ffcc2a;
+  transition: transform 250ms;
+  transform-origin: bottom;
+  z-index: 101;
+}
+.streg_1 {
+  transform: translateY(-0.5rem);
+}
+
+.streg_3 {
+  transform: translateY(0.5rem);
+}
+
+#menuknap.kryds .streg_1 {
+  transform: rotate(45deg) translateY(calc(50% + (2px / 2)));
+}
+#menuknap.kryds .streg_2 {
+  transform: translateY(-500%);
+  opacity: 0;
+}
+#menuknap.kryds .streg_3 {
+  transform: rotate(-45deg) translateY(calc(50% - (2px / 2)));
+}
+
+.menu_logo {
+  width: 15vw;
+  margin: 1rem 0 2rem 2rem;
+}
+
+.user,
+.cart {
+  display: inline-block;
+  max-width: 6rem;
+  max-height: 10vw;
+  margin: 5vh;
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  background: black;
+
+  z-index: 100;
+  transition: 250ms;
+}
+
+.menu li {
+  font-size: 5rem;
+  margin-left: 4rem;
+}
+.logo_desktop {
+  display: none;
+}
+.menu.hidden {
+  transition: 250ms;
+  transform: translateY(-100%);
+}
+
+/******* Dropdown *********/
+
+.dropbtn {
+  background-color: black;
+  font-family: "Rubik", sans-serif;
+  text-decoration: none;
+  color: #ffcc2a;
+  border: none;
+  cursor: pointer;
+  font-size: 5rem;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+  color: #f74a5a;
+  text-decoration: underline;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  margin-top: 2vh;
+}
+
+.dropdown-content a {
+  color: #ffcc2a;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 3rem;
+  background-color: black;
+}
+
+.show {
+  display: block;
+}
+
+/*..... breadcrumb ....... */
+.breadcrumb {
+  margin-left: 2rem;
+  padding: 10px 16px;
+  text-align: left;
+  margin-top: 5rem;
+}
+
+.breadcrumb li {
+  list-style: none;
+  text-decoration: none;
+  display: inline;
+  font-size: 1rem;
+  color: #f74a5a;
+}
+
+ul.breadcrumb li a {
+  text-decoration: underline;
+  color: #f74a5a;
+}
+
+ul.breadcrumb li + li:before {
+  padding: 8px;
+  color: #f74a5a;
+  content: ">";
+}
+
+/******* Singleview *********/
+
+#single {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.pris {
+  color: white;
+}
+
+h4 {
+  color: white;
+  font-size: 1rem;
+}
+
+#container {
+  display: flex;
+}
+
+#number {
+  border: 1px solid white;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 36px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+#up {
+  border-radius: 0px 5px 5px 0px;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  margin-right: 3rem;
+
+  text-align: center;
+  background-color: #f74a5a;
+  background-image: none;
+  font-family: Open Sans;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: black;
+  border: none;
+
+  padding-top: 12px;
+  padding-right: 24px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+  cursor: pointer;
+  transition: 250ms ease;
+  align-self: center;
+  height: 38px;
+}
+#ned {
+  border-radius: 5px 0px 0px 5px;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+
+  text-align: center;
+  background-color: #f74a5a;
+  background-image: none;
+  font-family: Open Sans;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: black;
+  border: none;
+
+  padding-top: 12px;
+  padding-right: 24px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+  cursor: pointer;
+  transition: 250ms ease;
+  align-self: center;
+  height: 38px;
+}
+
+#cart_button {
+  text-align: center;
+  background-color: #f74a5a;
+  background-image: none;
+  font-family: Open Sans;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 1px;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding-top: 12px;
+  padding-right: 24px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+  cursor: pointer;
+  transition: 250ms ease;
+  align-self: center;
+  height: 38px;
+  /* margin-bottom: 2rem; */
+}
+
+#produkt_img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.ui {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+#h2_lignende {
+  text-align: center;
+  color: #ffcc2a;
+  font-size: 1.3rem;
+  margin-top: 7rem;
+}
+
+#oplysninger {
+  text-align: center;
+  color: #ffcc2a;
+  font-size: 1.3rem;
+}
+
+#produkt_oplysninger {
+  text-align: center;
+}
+
+.beskrivelse {
+  color: white;
+  margin-bottom: 3rem;
+  font-size: 16px;
+  line-height: 27px;
+}
+
+.pris_single {
+  color: #ffcc2a;
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 3rem;
+}
+
+.beskrivelse_dropdown {
+  color: white;
+  margin-inline: 10%;
+}
+
+#single_navn {
+  color: #ffcc2a;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.produkt_detaljer div {
+  width: 23px;
+  height: 5px;
+  margin: 5px;
+  background-color: #ffcc2a;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.line2 {
+  transform: rotate(90deg) translate(0px, 33px);
+}
+
+h4 {
+  color: #ffcc2a;
+  font-size: 1.3rem;
+}
+
+#oplysninger_section {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.produkt_detaljer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+/******* Menu - Media querries *********/
+
+@media (min-width: 800px) {
+  p {
+    font-size: 1.3rem;
+  }
+  button {
+    transition: 0.3s;
+  }
+
+  /* main {
+      margin-top: 10vh;
+    } */
+
+  #menuknap {
+    display: none;
+  }
+
+  #menu_logo {
+    margin: 0;
+    position: static;
+    max-width: 6rem;
+    height: auto;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+    height: 10vh;
+
+    margin: 0;
+    padding-bottom: 0;
+    background-color: black;
+
+    cursor: initial;
+    z-index: 20;
+  }
+
+  #desktop_punkter {
+    display: flex;
+  }
+
+  .menu li {
+    margin: 1vh;
+    font-size: 1rem;
+    z-index: 110;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  /* Nulstille .hidden classen */
+  .menu.hidden {
+    transition: none;
+    transform: translateY(0);
+    padding-top: 1rem;
+    background-color: #0a0a0a;
+  }
+
+  .logo_desktop {
+    display: inline-block;
+    width: 15vw;
+    margin-left: -10vh;
+  }
+
+  .user,
+  .cart {
+    /* display: flex; */
+    width: 2vw;
+    max-width: 3vw;
+    margin: 1vh;
+    margin-top: 3vh;
+  }
+
+  .cart {
+    padding-right: 4vh;
+  }
+
+  .usercart {
+    padding-right: 3rem;
+  }
+
+  .logo_mobile {
+    display: none;
+  }
+  .menu a {
+    transition: 250ms;
+  }
+
+  .menu a:hover {
+    color: #f74a5a;
+    border-bottom: 2px solid #f74a5a;
+  }
+
+  /* Dropdown media */
+  .dropbtn {
+    background-color: #0a0a0a;
+    font-family: "Rubik", sans-serif;
+    text-decoration: none;
+    color: #ffcc2a;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .dropbtn:hover,
+  .dropbtn:focus {
+    color: #f74a5a;
+    text-decoration: underline;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    background-color: black;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-top: 7vh;
+  }
+
+  .dropdown-content a {
+    color: #ffcc2a;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1250px) {
+  /*..... Singleview desktop....... */
+
+  #single {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 5.5rem;
+    margin-right: 5.5rem;
+  }
+
+  #produkt_img {
+    grid-column: 1;
+    grid-row: 1/4;
+    padding-top: 0rem;
+  }
+
+  #single_navn {
+    grid-column: 2;
+    font-size: 2rem;
+    text-align: left;
+    margin-bottom: -4rem;
+  }
+
+  #produkt_img {
+    width: 100%;
+    height: auto;
+  }
+
+  .pris_single {
+    grid-column: 2/3;
+    text-align: left;
+    margin-bottom: 0rem;
+  }
+
+  .beskrivelse {
+    margin-bottom: 14rem;
+  }
+
+  .ui {
+    grid-column: 2/3;
+    grid-row: 4;
+    justify-content: left;
+    margin-top: -27rem;
+  }
+
+  #oplysninger_section {
+    margin-top: 4rem;
+  }
+
+  #number {
+    margin-top: 10.8rem;
+  }
+}

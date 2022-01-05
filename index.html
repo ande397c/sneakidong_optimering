@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Forbedring (optimering)</title>
+  </head>
+  <body>
+    <header>
+      <!--Html for vores navigations menu/burgermenu-->
+      <div class="background"></div>
+      <nav class="navigations_menu">
+        <a class="logo_mobile"
+          ><img class="menu_logo" src="logo.png" alt="logo"
+        /></a>
+        <div id="burger_wrapper">
+          <div id="menuknap">
+            <div class="streg_1"></div>
+            <div class="streg_2"></div>
+            <div class="streg_3"></div>
+          </div>
+          <ul class="menu hidden">
+            <div id="desktop_punkter">
+              <li>
+                <button class="dropbtn" onclick="dropdownFunction()">
+                  Shop
+                </button>
+              </li>
+              <div id="myDropdown" class="dropdown-content">
+                <a href="#">Sneakerpleje</a>
+                <a href="#">Skotræ</a>
+                <a href="#">Accesories</a>
+                <a href="#">Snørrebånd</a>
+              </div>
+              <li>
+                <a href="#">Guide</a>
+              </li>
+              <li>
+                <a href="#">Blog</a>
+              </li>
+              <li>
+                <a href="#">Om os</a>
+              </li>
+            </div>
+            <div>
+              <li class="logo_desktop">
+                <a class="logo" href="#"
+                  ><img id="menu_logo" src="logo.png" alt="logo"
+                /></a>
+              </li>
+            </div>
+            <div class="usercart">
+              <a class="user" href="#"
+                ><img id="menu_user" src="konto.png" alt="user"
+              /></a>
+              <a class="cart" href="#"
+                ><img id="menu_cart" src="cart.png" alt="cart"
+              /></a>
+            </div>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Brødkrummesti-->
+    <ul class="breadcrumb">
+      <li>
+        <a href="#">Hjem</a>
+      </li>
+      <li><a href="#">Produktoversigt</a></li>
+      <li>Produktdetaljer</li>
+    </ul>
+
+    <!-- Singleview article-->
+    <article id="single">
+      <h1 id="single_navn">SneakerSafe Sålbeskyttere</h1>
+      <img id="produkt_img" src="produkt_img.png" alt="" />
+
+      <h4 class="pris_single">199 kr.</h4>
+      <div class="ui">
+        <div id="container">
+          <button id="ned">-</button>
+          <div id="number">0</div>
+
+          <button id="up">+</button>
+        </div>
+
+        <button id="cart_button">Tilføj til kurv</button>
+      </div>
+      <p class="beskrivelse">
+        Vidunderproduktet vi alle har ventet på, er endelig landet! Irritere du
+        dig også over at det ofte er sålen der resultere i at du må kassere et
+        par Sneakers, når resten af delen stadig fremstår boxfresh? Det har
+        gutterne bag SneakerSafe Sneakersåler nu gjort noget ved og det er vi
+        mange der er glade for! Sålerne fitter alle former for fodtøj op til
+        størrelsen 48 og er easy as 1, 2, 3, at montere.
+      </p>
+    </article>
+    <script src="script.js"></script>
+  </body>
+</html>
