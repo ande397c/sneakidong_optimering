@@ -79,25 +79,41 @@
       <img id="produkt_img" src="produkt_img.png" alt="" />
 
       <h4 class="pris_single">199 kr.</h4>
-      <div class="ui">
-        <div id="container">
-          <button id="ned">-</button>
-          <div id="number">0</div>
 
-          <button id="up">+</button>
+      <div class="right-column">
+        <div class="ui">
+          <div id="container">
+            <button id="ned">-</button>
+            <div id="number">1</div>
+            <button id="up">+</button>
+          </div>
+
+          <button id="cart_button">Tilføj til kurv</button>
         </div>
-
-        <button id="cart_button">Tilføj til kurv</button>
+        <p class="beskrivelse">
+          Vidunderproduktet vi alle har ventet på, er endelig landet! Irritere
+          du dig også over at det ofte er sålen der resultere i at du må kassere
+          et par Sneakers, når resten af delen stadig fremstår boxfresh? Det har
+          gutterne bag SneakerSafe Sneakersåler nu gjort noget ved og det er vi
+          mange der er glade for! Sålerne fitter alle former for fodtøj op til
+          størrelsen 48 og er easy as 1, 2, 3, at montere.
+        </p>
       </div>
-      <p class="beskrivelse">
-        Vidunderproduktet vi alle har ventet på, er endelig landet! Irritere du
-        dig også over at det ofte er sålen der resultere i at du må kassere et
-        par Sneakers, når resten af delen stadig fremstår boxfresh? Det har
-        gutterne bag SneakerSafe Sneakersåler nu gjort noget ved og det er vi
-        mange der er glade for! Sålerne fitter alle former for fodtøj op til
-        størrelsen 48 og er easy as 1, 2, 3, at montere.
-      </p>
     </article>
+
+    <!-- Pop up-->
+    <div class="pop_up">
+      <div class="popup_content">
+        <span class="close">&times;</span>
+        <h4>Tak for dit køb</h4>
+        <p id="text"></p>
+        <div class="knap_section">
+          <button id="shop">Tilbage til shop</button>
+          <button id="cart">Gå til indkøbskurv</button>
+        </div>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
