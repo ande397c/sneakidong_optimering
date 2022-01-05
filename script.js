@@ -4,6 +4,12 @@ document.addEventListener("DOMContentLoaded", sidenVises);
 
 /*Funktionen går i gang når burgermenuen trykkes på*/
 function sidenVises() {
+  // Variabler pop up
+
+  const span = document.querySelector(".close");
+
+  span.addEventListener("click", fjern);
+
   document.querySelector("#menuknap").addEventListener("click", toggleMenu);
   antalCounter();
 }
@@ -34,13 +40,22 @@ window.onclick = function (event) {
   }
 };
 
+// ................ Script til produkt .......................
+
+let tæller = 1;
+let produktNavn = "SneakerSafe Sålbeskyttere";
+
+let overskriftPopUp = document.querySelector("#popup_overskrift");
+
 function antalCounter() {
+  // Læg i kurv knap der viser pop up
+
+  document.querySelector("#cart_button").addEventListener("click", show);
   // Variabler til counter
 
   let add = document.querySelector("#up");
   let remove = document.querySelector("#ned");
   let nr = document.querySelector("#number");
-  let tæller = 1;
 
   // Tæller antal gøres mindre
 
@@ -57,6 +72,24 @@ function antalCounter() {
     tæller += 1;
     nr.innerText = tæller;
   });
+}
+
+function show() {
+  let besked = document.querySelector("#text");
+
+  document.querySelector(".pop_up").classList.toggle("block");
+
+  // Eksempel fra AKA projekt. Få navn på produkt med syntaks:
+  // ur.Navn. Samme syntaks der bruges til at udskrive produktnavnet i DOM'en.
+  besked.innerText = `Du har lagt ${tæller} stk. i kurven`;
+
+  overskriftPopUp.innerText = `${produktNavn} er tilføjet kurven`;
+}
+
+// Funktionen til lukning af pop up
+
+function fjern() {
+  document.querySelector(".pop_up").classList.toggle("block");
 }
 
 // Variabler til produkt
