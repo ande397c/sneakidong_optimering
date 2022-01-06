@@ -117,20 +117,39 @@
     </div>
 
     <!-- Header cart  pop up-->
+
     <div class="cart_indhold">
       <div class="top_row">
         <img id="cart_img" src="produkt_img.png" alt="" />
         <p id="produkt_navn_cart"></p>
+
+        <div class="stk_pris_total">
+          <p id="antal_stk">1 stk.</p>
+          <p id="pris_total">199 kr.</p>
+        </div>
       </div>
 
+      <hr />
+
       <div class="bottom_row">
-        <p id="antal_stk">1 stk.</p>
-        <p id="pris_total">199 kr.</p>
-        <p>Levering</p>
-        <p id="levering_pris">29 kr.</p>
-        <p>Total:</p>
-        <p id="total">228 kr.</p>
+        <div class="levering_pris_text">
+          <p>Levering</p>
+          <p id="levering_pris">29 kr.</p>
+        </div>
+
+        <div class="total_pris_text">
+          <p>Total:</p>
+          <p id="total">228 kr.</p>
+        </div>
       </div>
+
+      <div class="knap_section">
+        <button class="popup_btn">Indkøbskurv</button>
+      </div>
+    </div>
+
+    <div class="main_cart">
+      <div class="main_cart_indhold"></div>
     </div>
 
     <script src="script.js"></script>

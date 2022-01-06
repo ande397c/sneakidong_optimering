@@ -11,6 +11,7 @@ function sidenVises() {
   span.addEventListener("click", fjern);
 
   document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+
   antalCounter();
 }
 
@@ -42,8 +43,13 @@ window.onclick = function (event) {
 
 // ................ Script til produkt .......................
 
+// Generelle varibabler - counter og produktnavn
+
 let tæller = 1;
+
 let produktNavn = "SneakerSafe Sålbeskyttere";
+
+// Generelle varibabler - containere til produkt og omkostningsinformation
 
 let overskriftPopUp = document.querySelector("#popup_overskrift");
 
@@ -57,10 +63,17 @@ let samlet = document.querySelector("#total");
 
 let levering = document.querySelector("#levering_pris");
 
-// Variabler til produkt
-let pris = 199;
-
 let prisTotal = document.querySelector("#pris_total");
+
+ let popUpHeader = document.querySelector(".cart_indhold");
+
+ popUpHeader.style.display = "none";
+
+ cartNR.style.display = "none";
+
+// Variabler til pris og omkostninger:
+
+let pris = 199;
 
 let samletPris = levering + pris * tæller;
 
@@ -69,9 +82,11 @@ let fragt = 29;
 let udenFragt = 0;
 
 function antalCounter() {
-  // Læg i kurv knap der viser pop up
+  // Læg i kurv knap der viser header pop up
 
-  document.querySelector("#cart_button").addEventListener("click", show);
+  document
+    .querySelector("#cart_button")
+    .addEventListener("click", showHeaderCart);
 
   // Variabler til counter
 
@@ -102,13 +117,32 @@ function antalCounter() {
   });
 }
 
+// Funktion der viser første pop up. Her skrives variabler ud, såsom tæller
+// og produktNavn
+
+function showHeaderCart() {
+  let topHeaderKnap = document.querySelector(".popup_btn").addEventListener("click", showMainCart);
+
+  if (popUpHeader.style.display === "none" || cartNR.style.display === "none") {
+    popUpHeader.style.display = "block";
+    cartNR.style.display = "block";
+  } else {
+    popUpHeader.style.display = "none";
+    cartNR.style.display = "none";
+  }
+  console.log("headerCart");
+
+}
+
+function showMainCart() {
+  console.log("showMainCart");
+}
+
 function show() {
   let besked = document.querySelector("#text");
 
   document.querySelector(".pop_up").classList.toggle("block");
 
-  // Eksempel fra AKA projekt. Få navn på produkt med syntaks:
-  // ur.Navn. Samme syntaks der bruges til at udskrive produktnavnet i DOM'en.
   besked.innerText = `Du har lagt ${tæller} stk. i kurven`;
 
   overskriftPopUp.innerText = `${produktNavn} er tilføjet kurven`;
@@ -120,6 +154,9 @@ function fjern() {
   document.querySelector(".pop_up").classList.toggle("block");
 }
 
+// Script til header pop up, hvor informationer ændrer sig
+// dynamisk. (Mangler en funktion)!
+
 produktNavnContainer.innerText = `${produktNavn}`;
 
 function checkPrice() {
@@ -129,9 +166,9 @@ function checkPrice() {
 
   if (value >= 300) {
     levering.innerText = "0 kr.";
-    samlet.innerText = value + udenFragt + "kr.";
+    samlet.innerText = value + udenFragt + " kr.";
   } else {
     levering.innerText = "29 kr.";
-    samlet.innerText = value + fragt + "kr.";
+    samlet.innerText = value + fragt + " kr.";
   }
 }
