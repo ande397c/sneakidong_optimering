@@ -63,23 +63,57 @@ let samlet = document.querySelector("#total");
 
 let levering = document.querySelector("#levering_pris");
 
+let leveringMain = document.querySelector("#levering_pris_main");
+
 let prisTotal = document.querySelector("#pris_total");
 
- let popUpHeader = document.querySelector(".cart_indhold");
+let popUpHeader = document.querySelector(".cart_indhold");
 
- popUpHeader.style.display = "none";
+popUpHeader.style.display = "none";
 
- cartNR.style.display = "none";
+cartNR.style.display = "none";
+
+// Variabler til counter  Main Cart
+
+let counterOutput = document.querySelector("#output");
+let counterIncre = document.querySelector("#incre");
+let CounterDecre = document.querySelector("#decre");
+
+CounterDecre.addEventListener("click", () => {
+  if (tæller > 1) {
+    tæller -= 1;
+    counterOutput.innerText = tæller;
+
+    cartNR.innerText = tæller;
+    stkTotal.innerText = `${tæller} stk.`;
+    checkPrice();
+  }
+});
+
+// Tæller antal øges produktside
+
+counterIncre.addEventListener("click", () => {
+  tæller += 1;
+  counterOutput.innerText = tæller;
+
+  cartNR.innerText = tæller;
+  stkTotal.innerText = `${tæller} stk.`;
+  checkPrice();
+});
 
 // Variabler til pris og omkostninger:
 
 let pris = 199;
+
+document.querySelector("#produkt_pris_maincart").innerText = pris + " kr.";
 
 let samletPris = levering + pris * tæller;
 
 let fragt = 29;
 
 let udenFragt = 0;
+
+document.querySelector("#subtotal_main").innerText = pris + " kr.";
 
 function antalCounter() {
   // Læg i kurv knap der viser header pop up
@@ -88,29 +122,31 @@ function antalCounter() {
     .querySelector("#cart_button")
     .addEventListener("click", showHeaderCart);
 
-  // Variabler til counter
+  // Variabler til counter / produktside
 
   let add = document.querySelector("#up");
   let remove = document.querySelector("#ned");
   let nr = document.querySelector("#number");
 
-  // Tæller antal gøres mindre
+  // Tæller antal gøres mindre produktside
 
   remove.addEventListener("click", () => {
     if (tæller > 1) {
       tæller -= 1;
       nr.innerText = tæller;
+
       cartNR.innerText = tæller;
       stkTotal.innerText = `${tæller} stk.`;
       checkPrice();
     }
   });
 
-  // Tæller antal øges
+  // Tæller antal øges produktside
 
   add.addEventListener("click", () => {
     tæller += 1;
     nr.innerText = tæller;
+
     cartNR.innerText = tæller;
     stkTotal.innerText = `${tæller} stk.`;
     checkPrice();
@@ -121,7 +157,9 @@ function antalCounter() {
 // og produktNavn
 
 function showHeaderCart() {
-  let topHeaderKnap = document.querySelector(".popup_btn").addEventListener("click", showMainCart);
+  let topHeaderKnap = document
+    .querySelector(".popup_btn")
+    .addEventListener("click", showMainCart);
 
   if (popUpHeader.style.display === "none" || cartNR.style.display === "none") {
     popUpHeader.style.display = "block";
@@ -131,7 +169,6 @@ function showHeaderCart() {
     cartNR.style.display = "none";
   }
   console.log("headerCart");
-
 }
 
 function showMainCart() {
@@ -158,6 +195,7 @@ function fjern() {
 // dynamisk. (Mangler en funktion)!
 
 produktNavnContainer.innerText = `${produktNavn}`;
+document.querySelector("#produkt_navn_maincart").innerText = `${produktNavn}`;
 
 function checkPrice() {
   prisTotal.innerText = pris * tæller + " kr.";
@@ -166,9 +204,20 @@ function checkPrice() {
 
   if (value >= 300) {
     levering.innerText = "0 kr.";
+    leveringMain.innerText = "0 kr.";
     samlet.innerText = value + udenFragt + " kr.";
+    document.querySelector("#total_main").innerText =
+      value + udenFragt + " kr.";
   } else {
     levering.innerText = "29 kr.";
+    leveringMain.innerText = "29 kr.";
     samlet.innerText = value + fragt + " kr.";
+    document.querySelector("#total_main").innerText = value + fragt + " kr.";
   }
+
+  counterOutput.innerText = tæller;
+
+  document.querySelector("#subtotal_main").innerText = pris * tæller + " kr.";
+
+  document.querySelector("#total_main").innerText = value + " kr.";
 }

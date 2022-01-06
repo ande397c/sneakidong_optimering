@@ -149,7 +149,43 @@
     </div>
 
     <div class="main_cart">
-      <div class="main_cart_indhold"></div>
+      <div class="main_cart_indhold">
+        <h4>Din indkøbskurv</h4>
+        <div class="cart_section">
+          <p>Produkt</p>
+          <hr class="hr_main" />
+          <img id="main_cart_img" src="produkt_img.png" alt="" />
+          <p>Navn</p>
+          <p id="produkt_navn_maincart"></p>
+          <p>Antal</p>
+
+          <div class="counter_ui">
+            <div id="container_maincart">
+              <button id="decre">-</button>
+              <div id="output">1</div>
+              <button id="incre">+</button>
+            </div>
+          </div>
+          <p>Pris</p>
+          <p id="produkt_pris_maincart"></p>
+          <span class="close_maincart">&times;</span>
+        </div>
+
+        <div class="levering_pris_text">
+          <p>Subtotal</p>
+          <p id="subtotal_main"></p>
+        </div>
+
+        <div class="levering_pris_text">
+          <p>Levering</p>
+          <p id="levering_pris_main">29 kr.</p>
+        </div>
+
+        <div class="total_pris_text">
+          <p>Alt inkl. moms</p>
+          <p id="total_main">228 kr.</p>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
