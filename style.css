@@ -575,12 +575,54 @@ h4 {
     margin-top: 3vh;
   }
 
+  .user {
+    margin-right: 2rem;
+  }
+
   .cart {
     padding-right: 4vh;
   }
 
   .usercart {
     padding-right: 3rem;
+  }
+
+  .update_cart {
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    background-color: #ffcc2a;
+    text-align: center;
+    line-height: 1rem;
+    margin-left: auto;
+    margin-right: 26px;
+    top: -4rem;
+    position: relative;
+  }
+
+  .cart_indhold {
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    background-color: white;
+    width: 290px;
+    height: 260px;
+    z-index: 99;
+  }
+
+  #cart_img {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .top_row {
+    display: grid;
+    grid-template-columns: 100px 190px;
+  }
+
+  #produkt_navn_cart {
+    font-size: 1rem;
+    padding-top: 1rem;
   }
 
   .logo_mobile {
@@ -656,6 +698,7 @@ h4 {
     font-size: 2rem;
     text-align: left;
     margin-bottom: -4rem;
+    margin-top: 5rem;
   }
 
   #produkt_img {

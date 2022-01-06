@@ -47,6 +47,8 @@ let produktNavn = "SneakerSafe Sålbeskyttere";
 
 let overskriftPopUp = document.querySelector("#popup_overskrift");
 
+let produktNavnContainer = document.querySelector("#produkt_navn_cart");
+
 function antalCounter() {
   // Læg i kurv knap der viser pop up
 
@@ -93,4 +95,6 @@ function fjern() {
 }
 
 // Variabler til produkt
-let pris = 200;
+let pris = 199;
+
+produktNavnContainer.innerText = `${produktNavn}`;
