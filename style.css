@@ -470,11 +470,11 @@ h4 {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -70%);
+  transform: translate(-50%, -85%);
   background-color: #f4f5f5;
   padding: 20px;
   width: 1110px;
-  height: 450px;
+  height: 500px;
 }
 
 .main_cart_indhold h4 {
@@ -485,7 +485,7 @@ h4 {
 .cart_section {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  /* grid-template-rows: 1fr 1fr; */
+  align-items: center;
 }
 .cart_section p {
   text-align: center;
@@ -570,11 +570,10 @@ h4 {
   height: 1px;
   background: #333;
   background-image: none;
-  background-image: linear-gradient(to right, #ccc, #333, #ccc);
   width: 100%;
   grid-column: 1/6;
   grid-row: 2;
-  margin-top: -1rem;
+  margin-top: -10rem;
 }
 
 .popup_content {
@@ -613,6 +612,54 @@ h4 {
   display: flex;
   justify-content: center;
   gap: 3rem;
+}
+
+.knap_section_main {
+  display: flex;
+  justify-content: space-between;
+}
+.shop_main {
+  text-align: center;
+  background-color: #f74a5a;
+  background-image: none;
+  font-family: Open Sans;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 1;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding-top: 12px;
+  padding-right: 24px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+  cursor: pointer;
+  transition: 250ms ease;
+  align-self: center;
+  height: 38px;
+}
+
+.checkout_main {
+  text-align: center;
+  background-color: #2d2d2d;
+  background-image: none;
+  font-family: Open Sans;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding-top: 12px;
+  padding-right: 24px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+  cursor: pointer;
+  transition: 250ms ease;
+  align-self: center;
+  height: 38px;
 }
 
 /******* Menu - Media querries *********/
@@ -768,6 +815,7 @@ h4 {
   .levering_pris_text {
     display: flex;
     justify-content: space-between;
+    margin-bottom: -1.5rem;
   }
 
   .total_pris_text {
