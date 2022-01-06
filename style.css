@@ -589,11 +589,11 @@ h4 {
 
   .update_cart {
     border-radius: 50%;
-    height: 15px;
-    width: 15px;
+    height: 20px;
+    width: 20px;
     background-color: #ffcc2a;
     text-align: center;
-    line-height: 1rem;
+    line-height: 1.3rem;
     margin-left: auto;
     margin-right: 26px;
     top: -4rem;
@@ -602,7 +602,7 @@ h4 {
 
   .cart_indhold {
     position: absolute;
-    top: 70px;
+    top: 80px;
     right: 10px;
     background-color: white;
     width: 290px;
@@ -619,10 +619,33 @@ h4 {
     display: grid;
     grid-template-columns: 100px 190px;
   }
+  .bottom_row {
+    display: grid;
+    grid-template-columns: 100px 190px;
+    text-align: center;
+    margin-top: -2rem;
+  }
+
+  #antal_stk {
+    font-size: 1rem;
+  }
+  #pris_total {
+    font-size: 1rem;
+    font-weight: bold;
+  }
 
   #produkt_navn_cart {
     font-size: 1rem;
-    padding-top: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  #total {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  .bottom_row p {
+    font-size: 1rem;
   }
 
   .logo_mobile {
