@@ -1,18 +1,24 @@
-document.addEventListener("DOMContentLoaded", sidenVises);
+window.addEventListener("DOMContentLoaded", sidenVises);
 
-let pris = 250;
+// Definerer information om produkt på produktet
+let pris = 199;
 
-// Funktioner til header:
+let produktNavn = "SneakerSafe Sålbeskyttere";
 
-/*Funktionen går i gang når burgermenuen trykkes på*/
+// ................ Script til header .......................
+
+// Funktionen kaldes når indholdet på side er loaded
 
 function sidenVises() {
   document.querySelector(".pris_single").innerText = pris + " kr.";
+
+  document.querySelector("#single_navn").innerText = produktNavn;
 
   // Variabler pop up
 
   document.querySelector("#menuknap").addEventListener("click", toggleMenu);
 
+  // Kalder funktionen der styrer de dynamiske udregninger
   antalCounter();
 }
 
@@ -22,7 +28,7 @@ function toggleMenu() {
   document.querySelector("#menuknap").classList.toggle("kryds");
 }
 
-// Dropdown
+// Funktion til dropdown
 
 function dropdownFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -44,21 +50,13 @@ window.onclick = function (event) {
 
 // ................ Script til produkt .......................
 
-// Generelle varibabler - counter og produktnavn
+// Generelle varibabler - counter og tilfældigt genereret tal
 
 let tæller = 1;
 
-let produktNavn = "SneakerSafe Sålbeskyttere";
-
-// Generate order number
-
 let OrderNumber = Math.floor(Math.random() * 1000000 + 1);
 
-console.log(OrderNumber);
-
-// Generelle varibabler - containere til produkt og omkostningsinformation
-
-let produktNavnContainer = document.querySelector("#produkt_navn_cart");
+// Generelle varibabler
 
 let cartNR = document.querySelector(".update_cart");
 
@@ -80,7 +78,7 @@ popUpHeader.style.display = "none";
 
 cartNR.style.display = "none";
 
-// Variabler til counter / produktside
+// Variabler til produkt (singleview) counter
 
 let add = document.querySelector("#up");
 let remove = document.querySelector("#ned");
@@ -91,34 +89,6 @@ let nr = document.querySelector("#number");
 let counterOutput = document.querySelector("#output");
 let counterIncre = document.querySelector("#incre");
 let CounterDecre = document.querySelector("#decre");
-
-CounterDecre.addEventListener("click", () => {
-  if (tæller > 1) {
-    tæller -= 1;
-    counterOutput.innerText = tæller;
-
-    cartNR.innerText = tæller;
-    nr.innerText = tæller;
-    stkTotal.innerText = `${tæller} stk.`;
-  }
-  checkPrice();
-});
-
-// Tæller antal øges produktside
-
-counterIncre.addEventListener("click", () => {
-  tæller += 1;
-  counterOutput.innerText = tæller;
-
-  cartNR.innerText = tæller;
-  nr.innerText = tæller;
-  stkTotal.innerText = `${tæller} stk.`;
-  checkPrice();
-});
-
-// Variabler til pris og omkostninger:
-
-document.querySelector("#produkt_pris_maincart").innerText = pris + " kr.";
 
 function checkPrice() {
   console.log("checkPrice");
@@ -140,8 +110,6 @@ function checkPrice() {
 
     leveringMain.innerText = "0 kr.";
     samletMain.innerText = value + udenFragt + " kr.";
-
-    console.log("udenFragt");
   } else {
     levering.innerText = "29 kr.";
     samlet.innerText = value + fragt + " kr.";
@@ -190,7 +158,7 @@ function antalCounter() {
 function showHeaderCart() {
   document.querySelector(".popup_btn").addEventListener("click", showMainCart);
 
-  produktNavnContainer.innerText = `${produktNavn}`;
+  document.querySelector("#produkt_navn_cart").innerText = `${produktNavn}`;
 
   prisTotal.innerText = pris;
 
@@ -203,6 +171,17 @@ function showHeaderCart() {
   }
   console.log("headerCart");
 
+  // Ved klik på kurv-ikonet i headeren kan brugeren
+  // Se kurven
+
+  document.querySelector("#menu_cart").addEventListener("click", () => {
+    if (popUpHeader.style.display === "none") {
+      popUpHeader.style.display = "block";
+    } else {
+      popUpHeader.style.display = "none";
+    }
+  });
+
   checkPrice();
 }
 
@@ -211,6 +190,8 @@ function showMainCart() {
   console.log("showMainCart");
 
   document.querySelector("#produkt_navn_maincart").innerText = `${produktNavn}`;
+
+  document.querySelector("#produkt_pris_maincart").innerText = pris + " kr.";
 
   popUpHeader.style.display = "none";
 
@@ -222,9 +203,68 @@ function showMainCart() {
     .querySelector(".checkout_main")
     .addEventListener("click", purchaseConfirmation);
 
+  // Ved klik på kryds fjernes produkterne fra kurven, indholdet justeres, til
+  // kasse-knap kan ikke klikkes
+
+  document.querySelector(".close_maincart").addEventListener("click", () => {
+    console.log("clearMainCart");
+
+    // Fjerner produktinformationerne fra kurven
+
+    document.querySelector("#main_cart_img").style.display = "none";
+    document.querySelector("#produkt_navn_maincart").style.display = "none";
+    document.querySelector(".counter_ui").style.display = "none";
+    document.querySelector("#produkt_pris_maincart").style.display = "none";
+
+    // Ændrer værdier til 0 kr.
+
+    document.querySelector("#subtotal_main").innerText = 0 + " kr.";
+    leveringMain.innerText = 0 + " kr.";
+    samletMain.innerText = 0 + " kr.";
+
+    // Tilpasser indholdet efter elementerne er blevet fjernet
+    document.querySelector(".cart_section").style.marginBottom = "6.8rem";
+
+    // Gør det umuligt for brugeren at gå til kassen hvis kurven er tømt
+
+    document.querySelector(".checkout_main").disabled = true;
+  });
+
+  // Kalder counter funktioner til at opdatere tal
+
   checkPrice();
+  mainCartCounter();
 }
 
+function mainCartCounter() {
+  console.log("mainCartCounter");
+
+  CounterDecre.addEventListener("click", () => {
+    if (tæller > 1) {
+      tæller -= 1;
+      counterOutput.innerText = tæller;
+
+      cartNR.innerText = tæller;
+      nr.innerText = tæller;
+      stkTotal.innerText = `${tæller} stk.`;
+    }
+    checkPrice();
+  });
+
+  // Tæller antal øges produktside
+
+  counterIncre.addEventListener("click", () => {
+    tæller += 1;
+    counterOutput.innerText = tæller;
+
+    cartNR.innerText = tæller;
+    nr.innerText = tæller;
+    stkTotal.innerText = `${tæller} stk.`;
+    checkPrice();
+  });
+}
+
+// Returnerer brugeren til shoppen med produktantal fra kurven
 function ReturnShop() {
   document.querySelector(".main_cart").classList.toggle("block");
 }
@@ -260,6 +300,3 @@ function removeConfirmation() {
   // Luk confirmation (popup) ved at genindlæse siden
   location.reload();
 }
-
-// Script til header pop up, hvor informationer ændrer sig
-// dynamisk. (Mangler en funktion)!
