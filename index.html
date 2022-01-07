@@ -80,7 +80,7 @@
       <h1 id="single_navn">SneakerSafe Sålbeskyttere</h1>
       <img id="produkt_img" src="produkt_img.png" alt="" />
 
-      <h4 class="pris_single">199 kr.</h4>
+      <h4 class="pris_single"></h4>
 
       <div class="right-column">
         <div class="ui">
@@ -106,12 +106,14 @@
     <!-- Pop up-->
     <div class="pop_up">
       <div class="popup_content">
-        <span class="close">&times;</span>
         <h4 id="popup_overskrift"></h4>
+        <div class="order_nr">
+          <h4>Dit order nr. er</h4>
+          <h4 id="order_number_output"></h4>
+        </div>
         <p id="text"></p>
         <div class="knap_section">
-          <button id="shop">Til shop</button>
-          <button id="cart">Til indkøbskurv</button>
+          <button id="shop">Fortsæt</button>
         </div>
       </div>
     </div>
@@ -125,7 +127,7 @@
 
         <div class="stk_pris_total">
           <p id="antal_stk">1 stk.</p>
-          <p id="pris_total">199 kr.</p>
+          <p id="pris_total"></p>
         </div>
       </div>
 
@@ -178,12 +180,12 @@
 
         <div class="levering_pris_text">
           <p>Levering</p>
-          <p id="levering_pris_main">29 kr.</p>
+          <p id="levering_pris_main"></p>
         </div>
 
         <div class="total_pris_text">
           <p>Alt inkl. moms</p>
-          <p id="total_main">228 kr.</p>
+          <p id="total_main"></p>
         </div>
         <div class="knap_section_main">
           <button class="shop_main">Tilbage til shop</button>

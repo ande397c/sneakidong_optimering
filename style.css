@@ -325,6 +325,7 @@ h4 {
   transition: 250ms ease;
   align-self: center;
   height: 38px;
+  margin-top: 1.5rem;
 }
 #cart {
   text-align: center;
@@ -447,7 +448,7 @@ h4 {
   height: 100%;
   overflow: auto;
   background-color: rgb(0, 0, 0);
-  background-color: rgba(206, 205, 205, 0.54);
+  background-color: white;
   height: 100vh;
   z-index: 99;
 }
@@ -464,13 +465,15 @@ h4 {
   background-color: white;
   height: 100vh;
   z-index: 99;
+
+  display: none;
 }
 
 .main_cart_indhold {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -85%);
+  transform: translate(-50%, -75%);
   background-color: #f4f5f5;
   padding: 20px;
   width: 1110px;
@@ -555,13 +558,12 @@ h4 {
 
 .close_maincart {
   color: #000;
-  float: right;
   font-size: 28px;
   font-weight: bold;
   grid-column: 5/6;
   grid-row: 2;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: 1rem;
   cursor: pointer;
 }
 .hr_main {
@@ -580,12 +582,22 @@ h4 {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fefefe;
+  transform: translate(-50%, -75%);
+  background-color: #f4f5f5;
   padding: 20px;
-  border: 1px solid #888;
-  width: 320px;
-  height: 180px;
+  width: 470px;
+  height: 300px;
+}
+
+.order_nr {
+  display: flex;
+  justify-content: center;
+}
+
+#order_number_output {
+  letter-spacing: 1px;
+  font-style: italic;
+  font-weight: bold;
 }
 
 .block {
@@ -602,6 +614,9 @@ h4 {
 .popup_content h4 {
   text-align: center;
   font-size: 1.3rem;
+  line-height: 2rem;
+  font-weight: 500;
+  margin: 1rem;
 }
 .popup_content p {
   text-align: center;
