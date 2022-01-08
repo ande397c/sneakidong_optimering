@@ -1,3 +1,5 @@
+/* Generelle regler */
+
 body {
   background-color: black;
 }
@@ -20,6 +22,24 @@ a {
   border-bottom: 2px solid #f74a5a;
 }
 
+p {
+  font-family: "Karla", sans-serif;
+}
+
+/* h1,
+h3,
+h4 {
+  font-family: "helvetica", sans-serif;
+} */
+
+/* Generelle regler  slut */
+
+/******* Menu  *******/
+
+header {
+  background-color: #0a0a0a;
+}
+
 .navigations_menu {
   display: flex;
   justify-content: space-between;
@@ -40,9 +60,7 @@ a {
   height: auto;
 }
 
-header {
-  background-color: #0a0a0a;
-}
+/*  Burger ikon  */
 
 .streg_1,
 .streg_2,
@@ -436,21 +454,103 @@ h4 {
   padding-left: 1rem;
 }
 
-/* .....Pop up styling ......*/
-.pop_up {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 105px;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
+/* .....Pop up styling - header ......*/
+
+.cart_indhold {
+  position: absolute;
+  top: 80px;
+  right: 10px;
   background-color: white;
-  height: 100vh;
+  width: 290px;
+  height: 300px;
   z-index: 99;
 }
+
+#cart_img {
+  width: 6rem;
+  height: 6rem;
+}
+
+.top_row {
+  display: grid;
+  grid-template-columns: 100px 190px;
+  margin-bottom: -1rem;
+}
+
+.bottom_row {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  text-align: center;
+  margin-top: -1rem;
+}
+
+hr {
+  margin-bottom: 1rem;
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: none;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+  width: 90%;
+}
+
+.stk_pris_total {
+  display: flex;
+  justify-content: space-between;
+  grid-column: 2;
+  grid-row: 1;
+  padding-top: 4rem;
+}
+
+.levering_pris_text {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: -1.5rem;
+}
+
+.total_pris_text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total_pris_text p {
+  font-weight: bold;
+}
+
+#levering_pris {
+  padding-right: 1rem;
+}
+
+#antal_stk {
+  font-size: 1rem;
+}
+#pris_total {
+  font-size: 1rem;
+  font-weight: bold;
+  padding-right: 1rem;
+}
+
+#produkt_navn_cart {
+  font-size: 1rem;
+  padding-top: 1.8rem;
+  margin: 0;
+  grid-column: 2/3;
+  grid-row: 1;
+}
+
+#total {
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding-right: 1rem;
+}
+
+.bottom_row p {
+  font-size: 1.3rem;
+  padding-left: 1rem;
+}
+
+/* .....Pop up styling - main cart ......*/
+
 .main_cart {
   position: fixed;
   z-index: 1;
@@ -471,7 +571,7 @@ h4 {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -75%);
+  transform: translate(-50%, -60%);
   background-color: #f4f5f5;
   padding: 20px;
   width: 1110px;
@@ -522,12 +622,18 @@ h4 {
   padding-right: 20px;
 }
 
-#incre,
+#incre {
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
 #decre {
   background-color: white;
   border: 1px solid black;
   cursor: pointer;
 }
+
 .counter_ui {
   grid-column: 3/4;
   grid-row: 2;
@@ -546,6 +652,10 @@ h4 {
   font-size: 28px;
   font-weight: bold;
 }
+#empty_maincart {
+  grid-column: 3/4;
+  grid-row: 2;
+}
 
 .close:hover,
 .close:focus {
@@ -556,12 +666,16 @@ h4 {
 
 .close_maincart {
   color: #000;
-  font-size: 28px;
+  font-size: 33px;
   font-weight: bold;
   grid-column: 5/6;
   grid-row: 2;
   margin-left: auto;
   cursor: pointer;
+}
+
+.close_maincart:hover {
+  color: #f74a5a;
 }
 .hr_main {
   margin-bottom: 1rem;
@@ -575,61 +689,11 @@ h4 {
   margin-top: -10rem;
 }
 
-.popup_content {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -75%);
-  background-color: #f4f5f5;
-  padding: 20px;
-  width: 470px;
-  height: 300px;
-}
-
-.order_nr {
-  display: flex;
-  justify-content: center;
-}
-
-#order_number_output {
-  letter-spacing: 1px;
-  font-style: italic;
-  font-weight: bold;
-}
-
-.block {
-  display: block;
-}
-
-.vis {
-  opacity: 1;
-}
-.gem {
-  opacity: 0;
-}
-
-.popup_content h4 {
-  text-align: center;
-  font-size: 1.3rem;
-  line-height: 2rem;
-  font-weight: 500;
-  margin: 1rem;
-}
-.popup_content p {
-  text-align: center;
-  font-size: 1.1rem;
-}
-
-.knap_section {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-}
-
 .knap_section_main {
   display: flex;
   justify-content: space-between;
 }
+
 .shop_main {
   text-align: center;
   background-color: #f74a5a;
@@ -674,7 +738,77 @@ h4 {
   height: 38px;
 }
 
-/******* Menu - Media querries *********/
+/* .....Pop up styling - confirmation ......*/
+
+.pop_up {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 105px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: white;
+  height: 100vh;
+  z-index: 99;
+}
+
+.popup_content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -75%);
+  background-color: #f4f5f5;
+  padding: 20px;
+  width: 470px;
+  height: 300px;
+}
+
+.order_nr {
+  display: flex;
+  justify-content: center;
+}
+
+#order_number_output {
+  letter-spacing: 1px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* .....Andre klasser ......*/
+
+.block {
+  display: block;
+}
+
+.vis {
+  opacity: 1;
+}
+.gem {
+  opacity: 0;
+}
+
+.popup_content h4 {
+  text-align: center;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  font-weight: 500;
+  margin: 1rem;
+}
+.popup_content p {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.knap_section {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+/******* Menu - Media@  *********/
 
 @media (min-width: 800px) {
   p {
@@ -776,99 +910,6 @@ h4 {
     margin-right: 26px;
     top: -4rem;
     position: relative;
-  }
-
-  .cart_indhold {
-    position: absolute;
-    top: 80px;
-    right: 10px;
-    background-color: white;
-    width: 290px;
-    height: 300px;
-    z-index: 99;
-  }
-
-  #cart_img {
-    width: 6rem;
-    height: 6rem;
-  }
-
-  .top_row {
-    display: grid;
-    grid-template-columns: 100px 190px;
-    margin-bottom: -1rem;
-  }
-
-  .bottom_row {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    text-align: center;
-    margin-top: -1rem;
-  }
-
-  hr {
-    margin-bottom: 1rem;
-    border: 0;
-    height: 1px;
-    background: #333;
-    background-image: none;
-    background-image: linear-gradient(to right, #ccc, #333, #ccc);
-    width: 90%;
-  }
-
-  .stk_pris_total {
-    display: flex;
-    justify-content: space-between;
-    grid-column: 2;
-    grid-row: 1;
-    padding-top: 3rem;
-  }
-
-  .levering_pris_text {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: -1.5rem;
-  }
-
-  .total_pris_text {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .total_pris_text p {
-    font-weight: bold;
-  }
-
-  #levering_pris {
-    padding-right: 1rem;
-  }
-
-  #antal_stk {
-    font-size: 1rem;
-  }
-  #pris_total {
-    font-size: 1rem;
-    font-weight: bold;
-    padding-right: 1rem;
-  }
-
-  #produkt_navn_cart {
-    font-size: 1rem;
-    padding-top: 1.8rem;
-    margin: 0;
-    grid-column: 2/3;
-    grid-row: 1;
-  }
-
-  #total {
-    font-size: 1.3rem;
-    font-weight: bold;
-    padding-right: 1rem;
-  }
-
-  .bottom_row p {
-    font-size: 1.3rem;
-    padding-left: 1rem;
   }
 
   .logo_mobile {

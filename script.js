@@ -7,7 +7,7 @@ let produktNavn = "SneakerSafe Sålbeskyttere";
 
 // ................ Script til header .......................
 
-// Funktionen kaldes når indholdet på side er loaded
+// Funktionen kaldes når indholdet på siden er loaded
 
 function sidenVises() {
   document.querySelector(".pris_single").innerText = pris + " kr.";
@@ -74,8 +74,9 @@ let prisTotal = document.querySelector("#pris_total");
 
 let popUpHeader = document.querySelector(".cart_indhold");
 
-popUpHeader.style.display = "none";
+// Header popup og antal ved kurv-ikon fjernes
 
+popUpHeader.style.display = "none";
 cartNR.style.display = "none";
 
 // Variabler til produkt (singleview) counter
@@ -89,6 +90,8 @@ let nr = document.querySelector("#number");
 let counterOutput = document.querySelector("#output");
 let counterIncre = document.querySelector("#incre");
 let CounterDecre = document.querySelector("#decre");
+
+// Funktion der opdatere prisværiderne
 
 function checkPrice() {
   console.log("checkPrice");
@@ -119,6 +122,8 @@ function checkPrice() {
     samletMain.innerText = value + fragt + " kr.";
   }
 }
+
+// Funktion der gør det muligt for brugeren at opdatere antal stk. (produkt (singleview) )
 
 function antalCounter() {
   // Læg i kurv knap der viser header pop up
@@ -164,25 +169,39 @@ function showHeaderCart() {
 
   if (popUpHeader.style.display === "none" || cartNR.style.display === "none") {
     popUpHeader.style.display = "block";
+    document.querySelector("#cart_button").disabled = true;
+    document.querySelector("#cart_button").style.cursor = "default";
     cartNR.style.display = "block";
+
+    console.log("block");
   } else {
+    document.querySelector("#cart_button").disabled = false;
+    document.querySelector("#cart_button").style.cursor = "pointer";
     popUpHeader.style.display = "none";
     cartNR.style.display = "none";
+
+    console.log("else");
   }
   console.log("headerCart");
 
   // Ved klik på kurv-ikonet i headeren kan brugeren
   // Se kurven
 
-  document.querySelector("#menu_cart").addEventListener("click", () => {
-    if (popUpHeader.style.display === "none") {
-      popUpHeader.style.display = "block";
-    } else {
-      popUpHeader.style.display = "none";
-    }
-  });
+  document
+    .querySelector("#menu_cart")
+    .addEventListener("click", cartIconHeader);
 
   checkPrice();
+}
+
+function cartIconHeader() {
+  console.log("cartIconHeaderCart");
+
+  if (popUpHeader.style.display === "none") {
+    popUpHeader.style.display = "block";
+  } else {
+    popUpHeader.style.display = "none";
+  }
 }
 
 // Funktion der viser brugerens hovedeCart
@@ -194,6 +213,8 @@ function showMainCart() {
   document.querySelector("#produkt_pris_maincart").innerText = pris + " kr.";
 
   popUpHeader.style.display = "none";
+
+  document.querySelector("#empty_maincart").style.display = "none";
 
   document.querySelector(".main_cart").classList.toggle("block");
 
@@ -209,6 +230,10 @@ function showMainCart() {
   document.querySelector(".close_maincart").addEventListener("click", () => {
     console.log("clearMainCart");
 
+    // Viser 'tom kurv' besked
+
+    document.querySelector("#empty_maincart").style.display = "block";
+
     // Fjerner produktinformationerne fra kurven
 
     document.querySelector("#main_cart_img").style.display = "none";
@@ -223,11 +248,19 @@ function showMainCart() {
     samletMain.innerText = 0 + " kr.";
 
     // Tilpasser indholdet efter elementerne er blevet fjernet
-    document.querySelector(".cart_section").style.marginBottom = "6.8rem";
+    document.querySelector(".cart_section").style.marginBottom = "5.5rem";
 
     // Gør det umuligt for brugeren at gå til kassen hvis kurven er tømt
 
     document.querySelector(".checkout_main").disabled = true;
+    document.querySelector(".checkout_main").style.cursor = "default";
+
+    // nulstiller antal stk.
+    cartNR.style.display = "none";
+
+    tæller = 1;
+
+    nr.innerText = tæller;
   });
 
   // Kalder counter funktioner til at opdatere tal
@@ -236,6 +269,7 @@ function showMainCart() {
   mainCartCounter();
 }
 
+// Funktion der gør det muligt for brugeren at opdatere antal stk. (mainCart)
 function mainCartCounter() {
   console.log("mainCartCounter");
 
@@ -267,6 +301,24 @@ function mainCartCounter() {
 // Returnerer brugeren til shoppen med produktantal fra kurven
 function ReturnShop() {
   document.querySelector(".main_cart").classList.toggle("block");
+
+  document.querySelector("#cart_button").disabled = false;
+  document.querySelector("#cart_button").style.cursor = "pointer";
+
+  // Tilføjer produktinformationerne til kurven igen
+
+  document.querySelector("#main_cart_img").style.display = "block";
+  document.querySelector("#produkt_navn_maincart").style.display = "block";
+  document.querySelector(".counter_ui").style.display = "block";
+  document.querySelector("#produkt_pris_maincart").style.display = "block";
+
+  // Justerer indholdet i kurven
+  document.querySelector(".cart_section").style.marginBottom = "0rem";
+
+  // Justerer antal stk.
+  cartNR.innerText = 1;
+  nr.innerText = 1;
+  stkTotal.innerText = 1 + " stk.";
 }
 
 // Funktion der viser købskekræftelse
