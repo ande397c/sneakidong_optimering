@@ -26,13 +26,25 @@ p {
   font-family: "Karla", sans-serif;
 }
 
-/* h1,
-h3,
-h4 {
-  font-family: "helvetica", sans-serif;
-} */
-
 /* Generelle regler  slut */
+
+/* animation*/
+
+.toggle_header_popop {
+  animation-name: toggle_header_popop_kf;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in;
+}
+
+@keyframes toggle_header_popop_kf {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
 
 /******* Menu  *******/
 
@@ -237,7 +249,6 @@ h4 {
   align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
   background-color: white;
   cursor: default;
 }
@@ -464,6 +475,7 @@ h4 {
   width: 290px;
   height: 300px;
   z-index: 99;
+  transition: 2s ease-in;
 }
 
 #cart_img {
@@ -604,6 +616,7 @@ hr {
 #produkt_navn_maincart {
   grid-column: 2/3;
   grid-row: 2;
+  font-size: 1.1rem;
 }
 
 #container_maincart {
@@ -655,6 +668,9 @@ hr {
 #empty_maincart {
   grid-column: 3/4;
   grid-row: 2;
+  letter-spacing: 1px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .close:hover,

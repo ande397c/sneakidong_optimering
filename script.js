@@ -1,6 +1,7 @@
 window.addEventListener("DOMContentLoaded", sidenVises);
 
 // Definerer information om produkt på produktet
+
 let pris = 199;
 
 let produktNavn = "SneakerSafe Sålbeskyttere";
@@ -56,9 +57,13 @@ let tæller = 1;
 
 let OrderNumber = Math.floor(Math.random() * 1000000 + 1);
 
-// Generelle varibabler
+// Generelle varibabler - pop ups
 
 let cartNR = document.querySelector(".update_cart");
+
+let popUpHeader = document.querySelector(".cart_indhold");
+
+// Generelle varibabler - antal stk., total, subtotal, omkostninger
 
 let stkTotal = document.querySelector("#antal_stk");
 
@@ -71,8 +76,6 @@ let levering = document.querySelector("#levering_pris");
 let leveringMain = document.querySelector("#levering_pris_main");
 
 let prisTotal = document.querySelector("#pris_total");
-
-let popUpHeader = document.querySelector(".cart_indhold");
 
 // Header popup og antal ved kurv-ikon fjernes
 
@@ -172,15 +175,12 @@ function showHeaderCart() {
     document.querySelector("#cart_button").disabled = true;
     document.querySelector("#cart_button").style.cursor = "default";
     cartNR.style.display = "block";
-
-    console.log("block");
+    setTimeout(hide, 3000);
   } else {
     document.querySelector("#cart_button").disabled = false;
     document.querySelector("#cart_button").style.cursor = "pointer";
     popUpHeader.style.display = "none";
     cartNR.style.display = "none";
-
-    console.log("else");
   }
   console.log("headerCart");
 
@@ -192,6 +192,13 @@ function showHeaderCart() {
     .addEventListener("click", cartIconHeader);
 
   checkPrice();
+}
+
+// Gemmer pop up efter 2 sekunder
+
+function hide() {
+  console.log("hide");
+  popUpHeader.style.display = "none";
 }
 
 function cartIconHeader() {
@@ -261,6 +268,10 @@ function showMainCart() {
     tæller = 1;
 
     nr.innerText = tæller;
+
+    document.querySelector(".shop_main").addEventListener("click", () => {
+      location.reload();
+    });
   });
 
   // Kalder counter funktioner til at opdatere tal
@@ -316,9 +327,9 @@ function ReturnShop() {
   document.querySelector(".cart_section").style.marginBottom = "0rem";
 
   // Justerer antal stk.
-  cartNR.innerText = 1;
-  nr.innerText = 1;
-  stkTotal.innerText = 1 + " stk.";
+  cartNR.innerText = tæller;
+  nr.innerText = tæller;
+  stkTotal.innerText = tæller + " stk.";
 }
 
 // Funktion der viser købskekræftelse
