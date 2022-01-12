@@ -2,9 +2,9 @@ window.addEventListener("DOMContentLoaded", sidenVises);
 
 // Definerer information om produkt på produktet
 
-let pris = 199;
+let pris = 50;
 
-let produktNavn = "SneakerSafe Sålbeskyttere";
+let produktNavn = "Snørrebånd";
 
 // ................ Script til header .......................
 
@@ -307,6 +307,10 @@ function mainCartCounter() {
     stkTotal.innerText = `${tæller} stk.`;
     checkPrice();
   });
+
+  document
+    .querySelector("#menu_cart")
+    .removeEventListener("click", cartIconHeader);
 }
 
 // Returnerer brugeren til shoppen med produktantal fra kurven
@@ -330,6 +334,10 @@ function ReturnShop() {
   cartNR.innerText = tæller;
   nr.innerText = tæller;
   stkTotal.innerText = tæller + " stk.";
+
+  document
+    .querySelector("#menu_cart")
+    .addEventListener("click", cartIconHeader);
 }
 
 // Funktion der viser købskekræftelse
@@ -351,6 +359,12 @@ function purchaseConfirmation() {
   let besked = document.querySelector("#text");
 
   besked.innerText = `Du modtager snart en mail med yderligere oplysninger om dit køb `;
+
+  cartNR.style.display = "none";
+
+  document
+    .querySelector("#menu_cart")
+    .removeEventListener("click", cartIconHeader);
 
   document.querySelector("#shop").addEventListener("click", removeConfirmation);
 }
